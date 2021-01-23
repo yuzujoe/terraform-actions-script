@@ -82,7 +82,7 @@ const runPlanCommands = async (diffDir) => {
         return {
             isError: false,
             dir,
-            output: makeOutputPlan(dir, terraformValidate, terraformPlan)
+            output: makeOutputPlan(dir, terraformValidate.output, terraformPlan.output)
         }
     }
 
@@ -94,7 +94,6 @@ const runPlanCommands = async (diffDir) => {
 
 const makeOutputPlan = (dir, validateOutput, planOutput) => {
     const formatValidateResult = (str) => {
-        console.log(str)
         const start = str.indexOf("\n");
         const end = str.indexOf("::debug::Terraform exited with code 0.");
         return str.slice(start, end).trim();
