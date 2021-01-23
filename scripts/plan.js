@@ -100,12 +100,12 @@ const makeOutputPlan = (dir, validateOutput, planOutput) => {
     };
 
     const formatPlanResult = (str) => {
-        const noChangeText = "No changes. Infrastructure is up-to-date."
-        const changeText = "An execution plan has been generated and is shown below."
-        const isNoChanges = str.includes(noChangeText)
-        const start = str.indexOf(isNoChanges ? noChangeText : changeText)
-        const end = str.indexOf("::debug::Terraform exited with code 0.")
-        return str.slice(start, end).trim()
+        const noChangesTxt = "No changes. Infrastructure is up-to-date."
+        const hasChangesTxt = "An execution plan has been generated and is shown below."
+        const isNoChanges = str.includes(noChangesTxt)
+        const start = str.indexOf(isNoChanges ? noChangesTxt : hasChangesTxt);
+        const end = str.indexOf("::debug::Terraform exited with code 0.");
+        return str.slice(start, end).trim();
     }
 
     return `## ${dir}
