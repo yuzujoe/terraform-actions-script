@@ -24,11 +24,11 @@ jobs:
         with:
           terraform_version: 0.14.5
 
-#      - uses: actions/github-script@v3
-#        env:
-#          GITHUB_BEFORE_REF: ${{ github.event.before }}
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          script: |
-#            const script = require(`${process.env.GITHUB_WORKSPACE}/scripts/apply.js`)
-#            script()
+      - uses: actions/github-script@v3
+        env:
+          GITHUB_BEFORE_REF: ${{ github.event.before }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const script = require(`${process.env.GITHUB_WORKSPACE}/scripts/apply.js`)
+            script()
