@@ -22,3 +22,10 @@ jobs:
 
       - name: Terraform Format
         run: terraform fmt -recursive -check
+
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const script = require(`${process.env.GITHUB_WORKSPACE}/scripts/plan.js`)
+            script({ github, context })
