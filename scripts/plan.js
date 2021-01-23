@@ -97,6 +97,7 @@ const makeOutputPlan = (dir, validateOutput, planOutput) => {
         const start = str.indexOf("\n");
         const end = str.indexOf("::debug::Terraform exited with code 0.");
         return str.slice(start, end).trim();
+
     };
 
     const formatPlanResult = (str) => {
