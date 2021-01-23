@@ -116,9 +116,11 @@ ${formatValidateResult(validateOutput)}
     
 #### Terraform Plan 📖
 <details><summary>Show Plan</summary>
+
 \`\`\`terraform
 ${formatPlanResult(planOutput)}
 \`\`\`
+
 </details>
 `;
 }
